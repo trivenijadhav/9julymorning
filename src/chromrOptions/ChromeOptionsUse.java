@@ -12,20 +12,20 @@ public class ChromeOptionsUse {
 	public static void main(String[] args) throws InterruptedException
 	{
 		System.setProperty("webdriver.chrome.driver", "C:\\myselenium\\chromedriver.exe");
+		ChromeOptions opt= new ChromeOptions();
+		
+		opt.addArguments("--disable-notifications");
 		
 		WebDriver driver=new ChromeDriver();
 		
-		//driver.manage().window().maximize();
-		
 		driver.get("https://www.justdial.com/");
 		
-		ChromeOptions opt= new ChromeOptions();
-		//opt.addArguments("--disable-notifications");
-		opt.addArguments("incognito");
-		opt.addArguments("start-maximized");
+		driver.manage().window().maximize();
+		//opt.addArguments("incognito");
+		//opt.addArguments("start-maximized");
 		
-		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1000));
-		driver.findElement(By.xpath("//span[text()='Shop Online']")).click();
+		//driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1000));
+		//driver.findElement(By.xpath("//span[text()='Shop Online']")).click();
 
 
 	}
